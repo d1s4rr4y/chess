@@ -1,5 +1,7 @@
 package pieces;
 
+import java.util.ArrayList;
+
 import board.Board;
 import board.Space;
 
@@ -19,4 +21,42 @@ public class Rook extends Piece{
         if(start.getX() == end.getX() || start.getY() == end.getY()) return true;
         else return false; 
     }
+
+    public Space[] allMoves(Board board, Space start) {
+        ArrayList<Space> moves = new ArrayList<>();
+        int x = start.getX();
+        int y = start.getY();
+        boolean blocked = false;
+        while(!blocked) {
+            if(canMove(board, start, board.getSpace(x++, y))) moves.add(board.getSpace(x, y));
+            else blocked = true;
+        }
+
+        x = start.getX();
+        y = start.getY();
+        blocked = false;
+        while(!blocked) {
+            if(canMove(board, start, board.getSpace(x--, y))) moves.add(board.getSpace(x, y));
+            else blocked = true;
+        }
+
+        x = start.getX();
+        y = start.getY();
+        blocked = false;
+        while(!blocked) {
+            if(canMove(board, start, board.getSpace(x, y++))) moves.add(board.getSpace(x, y));
+            else blocked = true;
+        }
+
+        x = start.getX();
+        y = start.getY();
+        blocked = false;
+        while(!blocked) {
+            if(canMove(board, start, board.getSpace(x, y--))) moves.add(board.getSpace(x, y));
+            else blocked = true;
+        }
+        
+        return moves.toArray(new Space[moves.size()]);
+    }
+
 }
