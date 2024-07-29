@@ -1,7 +1,7 @@
 package player;
 
-public class HumaPlayer extends Player {
-    public HumaPlayer(boolean white) {
+public class HumanPlayer extends Player {
+    public HumanPlayer(boolean white) {
         super(white, true);
     }
 }

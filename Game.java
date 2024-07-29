@@ -1,4 +1,3 @@
-import java.security.cert.PolicyQualifierInfo;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -10,7 +9,7 @@ import board.Move;
 import board.Space;
 import pieces.Piece;
 import player.ComputerPlayer;
-import player.HumaPlayer;
+import player.HumanPlayer;
 import player.Player;
 import pieces.King;
 

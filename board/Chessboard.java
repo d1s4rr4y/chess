@@ -1,9 +1,10 @@
 package board;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
+import java.awt.image.*;
 import javax.swing.*;
 import javax.swing.border.*;
+import javax.swing.event.*;
 
 public class Chessboard {
     private final JPanel gui = new JPanel(new BorderLayout(3, 3));
@@ -44,13 +45,20 @@ public class Chessboard {
                 ImageIcon icon = new ImageIcon(
                         new BufferedImage(64, 64, BufferedImage.TYPE_INT_ARGB));
                 b.setIcon(icon);
-                if ((j % 2 == 1 && i % 2 == 1)
-                        //) {
-                        || (j % 2 == 0 && i % 2 == 0)) {
-                    b.setBackground(Color.WHITE);
-                } else {
-                    b.setBackground(Color.BLACK);
-                }
+
+                Color background = (j % 2 == 1 && i % 2 == 1) || (j % 2 == 0 && i % 2 == 0) ? Color.WHITE : Color.BLACK;
+                b.setBackground(background);
+
+                b.getModel().addChangeListener(new ChangeListener() {
+                    public void stateChanged(ChangeEvent e) {
+                        ButtonModel model = (ButtonModel) e.getSource();
+                        if(model.isRollover()) {
+                            b.setBackground(Color.RED);
+                        } else {
+                            b.setBackground(background);
+                        }
+                    }
+                });
                 chessboardSquares[j][i] = b;
             }
         }
