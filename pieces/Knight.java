@@ -1,4 +1,6 @@
 package pieces;
+import java.util.ArrayList;
+
 import board.Board;
 import board.Space;
 
@@ -16,8 +18,16 @@ public class Knight extends Piece{
         return x * y == 2;
     }
 
-    public String getDisplay() {
-        if (this.isWhite()) return "N";
-        else return "n";
+    public Space[] allMoves(Board board, Space start) {
+        ArrayList<Space> moves = new ArrayList<>();
+        for(int i = start.getX() - 2; i < start.getX() + 3; i++){
+            for(int j = start.getY() - 2; j < start.getY() + 3 ; j++) {
+                if(canMove(board, start, board.getSpace(i, j))) {
+                    moves.add(board.getSpace(i, j));
+                }
+            }
+        }
+        
+        return moves.toArray(new Space[moves.size()]);
     }
 }

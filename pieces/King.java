@@ -45,9 +45,4 @@ public class King extends Piece {
         // validate/check start and end positions
         return true; 
     }
-    
-    public String getDisplay() {
-        if (this.isWhite()) return "K";
-        else return "k";
-    }
 }

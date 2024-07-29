@@ -20,9 +20,4 @@ public class Queen extends Piece {
         if(start.getX() == end.getX() || start.getY() == end.getY() || x == y) return true;
         else return false;
     }
-
-    public String getDisplay() {
-        if (this.isWhite()) return "Q";
-        else return "q";
-    }
 }

@@ -110,6 +110,10 @@ public class Chessboard {
         }
     }
 
+    // public final JButton getSpace(int i, int j) {
+    //     return chessboardSquares[i][j];
+    // }
+
     public final JComponent getChessboard() {
         return chessboard;
     }

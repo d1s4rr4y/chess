@@ -1,5 +1,7 @@
 package pieces;
 
+import java.util.ArrayList;
+
 import board.Board;
 import board.Space;
 
@@ -20,10 +22,5 @@ public class Bishop extends Piece {
 
         if (x == y) return true;
         else return false;
-    }
-
-    public String getDisplay() {
-        if (this.isWhite()) return "B";
-        else return "b";
     }
 }
