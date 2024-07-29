@@ -23,9 +23,6 @@ public class Chessboard {
         tools.setFloatable(false);
         gui.add(tools, BorderLayout.PAGE_START);
         tools.add(new JButton("New"));
-        // tools.add(new JButton("Save"));
-        // tools.add(new JButton("Restore"));
-        tools.addSeparator();
         tools.add(new JButton("Resign"));
         tools.addSeparator();
         tools.add(message);
@@ -140,4 +137,3 @@ public class Chessboard {
         SwingUtilities.invokeLater(r);
     }
 }
-

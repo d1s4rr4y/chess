@@ -27,7 +27,6 @@ public class Game {
         board.resetBoard();
         this.currentTurn = (p1.isWhite()) ? p1 : p2;
         movesPlayed.clear();
-        board.printBoard();
     }
 
     public boolean isEnd() {
@@ -78,7 +77,6 @@ public class Game {
             }
 
             this.currentTurn = this.currentTurn == players[0] ? players[1] : players[0];
-            board.printBoard();
             return true;
     }
 

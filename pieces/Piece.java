@@ -39,5 +39,4 @@ public abstract class Piece {
     }
 
     public abstract boolean canMove(Board board, Space start, Space end);
-    public abstract String getDisplay();
 }
