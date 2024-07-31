@@ -1,5 +1,6 @@
 import java.util.List;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -16,6 +17,7 @@ import pieces.King;
 public class Game {
     private Player[] players;
     private Board board;
+    private Chessboard cb;
     private Player currentTurn;
     private GameStatus status;
     private List<Move> movesPlayed;
@@ -41,11 +43,11 @@ public class Game {
         this.status = status;
     }
 
-    public boolean playerMove(Player player, int startX, int startY, int endX, int endY) {
+    public boolean playerMove(Player player, int startX, int startY, int endX, int endY) throws Exception {
         Space startSpace = board.getSpace(startX, startY);
         Space endSpace = board.getSpace(endX, endY);
 
-        Move move = new Move(player, startSpace, endSpace);
+        Move move = new Move(player, startSpace, endSpace);        
         return this.makeMove(move, player);
     }
 
